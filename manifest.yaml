@@ -1,0 +1,54 @@
+basePath: /
+definitions:
+  Server:
+    properties:
+      city: {type: string}
+      provider: {type: string}
+      public_ip: {type: string}
+      state: {type: string}
+      zip_code: {type: string}
+    type: object
+host: 10.244.108.173:6002
+info:
+  x-21-implements: ['31c7a5f5cb76ad33771180fbca39dd20376c3439']
+  contact: {email: nakamoto@nakamoto.com, name: Satoshi Nakamoto}
+  description: Run a ping on demand for bitcoin.
+  title: ping21
+  x-21-category: utilities
+  x-21-github-project-url: https://github.com/21dotco/ping21
+  x-21-keywords: [ping, network]
+  x-21-quick-buy: "$ 21 buy url http://10.244.108.172:6003/?uri=google.com\n\n# Output:\n\
+    # {  \n#     \"server\":{  \n#         \"city\":\"San Francisco\",\n#        \
+    \ \"country\":\"US\",\n#         \"hostname\":\"10-21-28-12.static.wiline.com\"\
+    ,\n#         \"ip\":\"10.21.28.12\",\n#         \"loc\":\"37.7749,-122.4194\"\
+    ,\n#         \"org\":\"AS33544 WiLine Networks Inc.\",\n#         \"postal\":\"\
+    94158\",\n#         \"region\":\"California\"\n#     },\n#     \"ping\"\
+    :[  \n#         \"PING 21.co (104.20.83.116) 64(92) bytes of data.\",\
+        \n#         \"72 bytes from 104.20.83.116: icmp_seq=1 ttl=48 time=25.4 ms\",\
+        \n#         \"72 bytes from 104.20.83.116: icmp_seq=2 ttl=48 time=49.1 ms\",\
+        \n#         \"72 bytes from 104.20.83.116: icmp_seq=3 ttl=48 time=19.9 ms\",\
+        \n#         \"--- 21.co ping statistics ---\",\
+        \n#         \"3 packets transmitted, 3 received, 0% packet loss, time 2002ms\",\
+        \n#         \"rtt min/avg/max/mdev = 19.913/31.525/49.194/12.698 ms\"\
+    #     ]\n# }"
+  x-21-total-price: {max: 1000, min: 1000}
+paths:
+  /:
+    get:
+      consumes: [application/x-www-form-urlencoded]
+      produces: [application/json]
+      responses:
+        200:
+          description: Ping statistics and information on server location.
+          schema:
+            properties:
+              ping:
+                items: {type: string}
+                type: array
+              server: {$ref: '#/definitions/Server'}
+            type: object
+      summary: Return ping statistics between this device and a given domain
+        or IP.
+schemes: [http]
+swagger: '2.0'
+x-21-manifest-path: /manifest
