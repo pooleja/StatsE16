@@ -15,6 +15,7 @@ Clone the ping21 repository.
 ```
 $ git clone https://github.com/21dotco/ping21.git
 $ cd ping21
+$ sudo easy_install3 pip
 $ sudo pip3 install -r requirements.txt
 ```
 
