@@ -18,7 +18,7 @@ info:
   x-21-github-project-url: https://github.com/21dotco/ping21
   x-21-keywords: [ping, network]
   x-21-quick-buy: "$ 21 buy url http://<ZEROTIER IP>:6003/?uri=google.com"
-  x-21-total-price: {max: 1000, min: 1000}
+  x-21-total-price: {max: 5, min: 5}
 paths:
   /:
     get:

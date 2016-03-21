@@ -39,7 +39,7 @@ def manifest():
 
 
 @app.route('/')
-@payment.required(1000)
+@payment.required(5)
 def ping():
     """ Runs ping on the provided url
 
