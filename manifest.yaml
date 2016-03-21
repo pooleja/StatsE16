@@ -17,20 +17,7 @@ info:
   x-21-category: utilities
   x-21-github-project-url: https://github.com/21dotco/ping21
   x-21-keywords: [ping, network]
-  x-21-quick-buy: "$ 21 buy url http://10.244.108.172:6003/?uri=google.com\n\n# Output:\n\
-    # {  \n#     \"server\":{  \n#         \"city\":\"San Francisco\",\n#        \
-    \ \"country\":\"US\",\n#         \"hostname\":\"10-21-28-12.static.wiline.com\"\
-    ,\n#         \"ip\":\"10.21.28.12\",\n#         \"loc\":\"37.7749,-122.4194\"\
-    ,\n#         \"org\":\"AS33544 WiLine Networks Inc.\",\n#         \"postal\":\"\
-    94158\",\n#         \"region\":\"California\"\n#     },\n#     \"ping\"\
-    :[  \n#         \"PING 21.co (104.20.83.116) 64(92) bytes of data.\",\
-        \n#         \"72 bytes from 104.20.83.116: icmp_seq=1 ttl=48 time=25.4 ms\",\
-        \n#         \"72 bytes from 104.20.83.116: icmp_seq=2 ttl=48 time=49.1 ms\",\
-        \n#         \"72 bytes from 104.20.83.116: icmp_seq=3 ttl=48 time=19.9 ms\",\
-        \n#         \"--- 21.co ping statistics ---\",\
-        \n#         \"3 packets transmitted, 3 received, 0% packet loss, time 2002ms\",\
-        \n#         \"rtt min/avg/max/mdev = 19.913/31.525/49.194/12.698 ms\"\
-    #     ]\n# }"
+  x-21-quick-buy: "$ 21 buy url http://<ZEROTIER IP>:6003/?uri=google.com"
   x-21-total-price: {max: 1000, min: 1000}
 paths:
   /:
