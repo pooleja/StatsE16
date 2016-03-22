@@ -23,7 +23,7 @@ $ sudo pip3 install -r requirements.txt
 Join the `21market` Marketplace, and start a local
 server to accept ping21 requests. The server will run in the
 background and process requests.  You can optionally edit the file
-to change the default price, which is 1000 Satoshis per request.
+to change the default price, which is 5 Satoshis per request.
 
 ```
 $ 21 join 21market
@@ -42,7 +42,7 @@ port of 6002 is the default port specified within the
 `ping21-server.py` code that you are running.
 
 ```
-$ 21 publish submit manifest.yaml -p 'name="Joe Smith" email="joe@example.com" price="1000" host="AUTO" port="6002"'
+$ 21 publish submit manifest.yaml -p 'name="Joe Smith" email="joe@example.com" price="5" host="AUTO" port="6002"'
 ```
 
 ### Step 5
