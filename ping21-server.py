@@ -6,8 +6,8 @@ import logging
 import psutil
 import subprocess
 import os
-import sys
 import yaml
+import ipaddress
 
 from flask import Flask
 from flask import request
@@ -23,6 +23,8 @@ app = Flask(__name__)
 wallet = Wallet()
 payment = Payment(app, wallet)
 
+# flag for allowing private ip pinging
+ALLOW_PRIVATE = False
 
 # hide logging
 log = logging.getLogger('werkzeug')
@@ -52,6 +54,12 @@ def ping():
         return 'HTTP Status 400: URI query parameter is missing from your request.', 400
 
     try:
+        if ipaddress.ip_address(uri).is_private and not ALLOW_PRIVATE:
+            return 'HTTP Status 403: Private IP scanning is forbidden', 403
+    except ValueError:
+        pass
+
+    try:
         data = ping21(uri)
         response = json.dumps(data, indent=4, sort_keys=True)
         return response
@@ -60,21 +68,34 @@ def ping():
 
 
 if __name__ == '__main__':
-    if 'daemon' not in sys.argv:
-        pid_file = './ping21.pid'
-        if os.path.isfile(pid_file):
-            pid = int(open(pid_file).read())
-            os.remove(pid_file)
+    import click
+
+    @click.command()
+    @click.option("-d", "--daemon", default=False, is_flag=True,
+                  help="Run in daemon mode.")
+    @click.option("-p", "--private",  default=False, is_flag=True,
+                  help="Allow ping21 to ping private ips.")
+    def run(daemon, private):
+        if private:
+            global ALLOW_PRIVATE
+            ALLOW_PRIVATE = private
+        if daemon:
+            pid_file = './ping21.pid'
+            if os.path.isfile(pid_file):
+                pid = int(open(pid_file).read())
+                os.remove(pid_file)
+                try:
+                    p = psutil.Process(pid)
+                    p.terminate()
+                except:
+                    pass
             try:
-                p = psutil.Process(pid)
-                p.terminate()
-            except:
-                pass
-        try:
-            p = subprocess.Popen(['python3', 'ping21-server.py', 'daemon'])
-            open(pid_file, 'w').write(str(p.pid))
-        except subprocess.CalledProcessError:
-            raise ValueError("error starting ping21-server.py daemon")
-    else:
-        print ("Server running...")
-        app.run(host='0.0.0.0', port=6002)
+                p = subprocess.Popen(['python3', 'ping21-server.py'])
+                open(pid_file, 'w').write(str(p.pid))
+            except subprocess.CalledProcessError:
+                raise ValueError("error starting ping21-server.py daemon")
+        else:
+            print("Server running...")
+            app.run(host='0.0.0.0', port=6002)
+
+    run()
