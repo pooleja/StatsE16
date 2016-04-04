@@ -6,7 +6,7 @@ Get the latest version of the 21 software. You should be at version `2.3.1`.
 ```
 $ 21 update
 $ 21 --version
-21 v2.3.1
+21 v2.3.3
 ```
 
 ### Step 2
@@ -27,7 +27,7 @@ to change the default price, which is 5 Satoshis per request.
 
 ```
 $ 21 join 21market
-$ python3 ping21-server.py &
+$ python3 ping21-server.py -d
 ```
 
 ### Step 4
