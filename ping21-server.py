@@ -15,7 +15,7 @@ from flask import request
 from two1.lib.wallet.two1_wallet import Wallet
 from two1.lib.bitserv.flask import Payment
 
-from ping21 import ping21
+from ping21 import ping21, getHostname
 
 app = Flask(__name__)
 
@@ -54,7 +54,7 @@ def ping():
         return 'HTTP Status 400: URI query parameter is missing from your request.', 400
 
     try:
-        if ipaddress.ip_address(uri).is_private and not ALLOW_PRIVATE:
+        if ipaddress.ip_address(getHostname(uri)).is_private and not ALLOW_PRIVATE:
             return 'HTTP Status 403: Private IP scanning is forbidden', 403
     except ValueError:
         pass
