@@ -1,12 +1,12 @@
 # How to run and publish: _**ping21**_
 
 ### Step 1
-Get the latest version of the 21 software. You should be at version `2.3.1`.
+Get the latest version of the 21 software. You should be at version `2.3.5`.
 
 ```
 $ 21 update
 $ 21 --version
-21 v2.3.3
+21 v2.3.5
 ```
 
 ### Step 2
