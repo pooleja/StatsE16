@@ -18,11 +18,12 @@ def getHostname(uri):
         str: cleaned uri
 
     """
-    hostname = urlparse(uri).hostname
-    if hostname is not None:
-        return hostname
+    parsed = urlparse(uri)
 
-    return uri
+    if parsed.netloc is '':
+        parsed = urlparse('http://' + uri)
+
+    return parsed.netloc
 
 def is_compatible():
     """ Checks whether the current machine is capable of running ping21
