@@ -7,9 +7,23 @@ import requests
 import shutil
 import subprocess
 import sys
+from urllib.parse import urlparse
 
-__all__ = ["ping21"]
+__all__ = ["ping21", "getHostname"]
 
+def getHostname(uri):
+    """ Cleans a provided uri
+
+    Returns:
+        str: cleaned uri
+
+    """
+    parsed = urlparse(uri)
+
+    if parsed.netloc is '':
+        parsed = urlparse('http://' + uri)
+
+    return parsed.netloc
 
 def is_compatible():
     """ Checks whether the current machine is capable of running ping21
@@ -44,7 +58,6 @@ def get_server_info():
     data = raw.json()
     return data
 
-
 def ping21(uri, num_packets=3, packet_size=64, wait_timeout=3.0):
     """ runs ping against the url.
 
@@ -56,21 +69,21 @@ def ping21(uri, num_packets=3, packet_size=64, wait_timeout=3.0):
     Returns:
         dict: A dictionary containing ping information.
 
-    """    
-    uri = uri.replace('https://', '').replace('http://', '')
+    """
+    hostname = getHostname(uri)
 
     if not is_compatible():
         return
 
     if platform.system() == 'Darwin':
         wait_timeout = wait_timeout * 1000
-    
-    try:    
+
+    try:
         out = subprocess.check_output(['ping', '-c', str(num_packets),
-            '-s', str(packet_size), '-W', str(wait_timeout), str(uri)]
+            '-s', str(packet_size), '-W', str(wait_timeout), str(hostname)]
         ).decode('unicode_escape')
     except subprocess.CalledProcessError:
-        raise ValueError("ping cannot be performed on url={}".format(uri))
+        raise ValueError("ping cannot be performed on url={}".format(hostname))
     res = [line for line in out.split('\n') if line != '']
     info = {
         'ping': res,
