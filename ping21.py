@@ -18,14 +18,11 @@ def getHostname(uri):
         str: cleaned uri
 
     """
-    try:
-        hostname = urlparse(uri).hostname
-        if hostname is not None:
-            return hostname
-    except ValueError:
-        pass
+    hostname = urlparse(uri).hostname
+    if hostname is not None:
+        return hostname
 
-    return uri.replace('https://', '').replace('http://', '')
+    return uri
 
 def is_compatible():
     """ Checks whether the current machine is capable of running ping21
@@ -79,8 +76,8 @@ def ping21(uri, num_packets=3, packet_size=64, wait_timeout=3.0):
 
     if platform.system() == 'Darwin':
         wait_timeout = wait_timeout * 1000
-    
-    try:    
+
+    try:
         out = subprocess.check_output(['ping', '-c', str(num_packets),
             '-s', str(packet_size), '-W', str(wait_timeout), str(hostname)]
         ).decode('unicode_escape')
