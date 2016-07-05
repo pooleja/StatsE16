@@ -28,7 +28,7 @@ def sensorE16():
         raise ValueError("Temperature query failed for cmd: \"temper-poll\"")
     res = [line for line in out.split('\n') if line != '']
     info = {
-        'temperature': res[1].split(' ')[2].split(u'\u00B0')[0],
+        'temperature': res[1].split(' ')[2].split(u'\u00C2')[0],
         'timestamp': '0'
     }
     return info
