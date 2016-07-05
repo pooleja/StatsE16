@@ -19,3 +19,6 @@ follow the instructions to set the USB permissions so that non-root users can ac
 https://github.com/padelt/temper-python
 
 Finally, you will need to clone this repo to your device and run the server.
+
+sudo easy_install3 pip
+sudo pip3 install -r requirements.txt

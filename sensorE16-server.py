@@ -59,7 +59,7 @@ if __name__ == '__main__':
     @click.command()
     @click.option("-d", "--daemon", default=False, is_flag=True,
                   help="Run in daemon mode.")
-    def run(daemon, private):
+    def run(daemon):
         if daemon:
             pid_file = './sensorE16.pid'
             if os.path.isfile(pid_file):
