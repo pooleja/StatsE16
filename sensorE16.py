@@ -7,6 +7,7 @@ import requests
 import shutil
 import subprocess
 import sys
+import datetime
 from urllib.parse import urlparse
 
 __all__ = ["sensorE16"]
@@ -29,7 +30,7 @@ def sensorE16():
     res = [line for line in out.split('\n') if line != '']
     info = {
         'temperature': res[1].split(' ')[2].split(u'\u00C2')[0],
-        'timestamp': '0'
+        'timestamp': str(datetime.datetime.now())
     }
     return info
 
