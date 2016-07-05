@@ -60,6 +60,11 @@ cd SensorE16
 sudo easy_install3 pip
 sudo pip3 install -r requirements.txt
 ./setup.sh
+```
+You will then be asked for location details to update your service manifest so clients can understand where the temp is coming from.
+
+To run the service, kick it off with the -d flag to run in the background:
+```
 python3 sensorE16-server.py -d
 ```
 
