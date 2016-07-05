@@ -13,7 +13,7 @@ info:
   x-21-category: utilities
   x-21-github-project-url: https://github.com/pooleja/sensorE16
   x-21-keywords: [temperature, sensor]
-  x-21-quick-buy: "$ 21 buy url http://<ZEROTIER IP>:6016/"
+  x-21-quick-buy: "$ 21 buy http://<ZEROTIER IP>:6016/"
   x-21-total-price: {max: 5, min: 5}
   x-21-implements-meta: {
         "x-sensor21-city": "{CITY}",
