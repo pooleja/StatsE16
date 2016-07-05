@@ -1,23 +1,19 @@
 basePath: /
 definitions:
-  Server:
+  Temperature:
     properties:
-      city: {type: string}
-      provider: {type: string}
-      public_ip: {type: string}
-      state: {type: string}
-      zip_code: {type: string}
+      timestamp: {type: string, format: "YYYY-MM-DD 24HH:MM:SS.USSS"}
+      temperature: {type: number, format: float}
     type: object
-host: 10.244.108.173:6002
+host: 10.244.79.96:6016
 info:
-  x-21-implements: ['31c7a5f5cb76ad33771180fbca39dd20376c3439']
-  contact: {email: nakamoto@nakamoto.com, name: Satoshi Nakamoto}
-  description: Run a ping on demand for bitcoin.
-  title: ping21
+  contact: {email: james@microtrx.com, name: eSixteen.co }
+  description: Get temperature data on demand for bitcoin.
+  title: SensorE16
   x-21-category: utilities
-  x-21-github-project-url: https://github.com/21dotco/ping21
-  x-21-keywords: [ping, network]
-  x-21-quick-buy: "$ 21 buy url http://<ZEROTIER IP>:6003/?uri=google.com"
+  x-21-github-project-url: https://github.com/pooleja/sensorE16
+  x-21-keywords: [temperature, sensor]
+  x-21-quick-buy: "$ 21 buy url http://<ZEROTIER IP>:6016/"
   x-21-total-price: {max: 5, min: 5}
 paths:
   /:
@@ -26,16 +22,11 @@ paths:
       produces: [application/json]
       responses:
         200:
-          description: Ping statistics and information on server location.
+          description: Air temperature for the location of the server and location information.
           schema:
             properties:
-              ping:
-                items: {type: string}
-                type: array
-              server: {$ref: '#/definitions/Server'}
-            type: object
-      summary: Return ping statistics between this device and a given domain
-        or IP.
+              temperature: {$ref: '#/definitions/Temperature'}
+      summary: Returns temperature in degrees C.
 schemes: [http]
 swagger: '2.0'
 x-21-manifest-path: /manifest

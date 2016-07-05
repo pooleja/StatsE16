@@ -16,5 +16,6 @@ First, you will need a TEMPer USB temperature probe.  The one used for developme
 
 Second, you will need to follow the instructions on the temper-python github project page to install the libraries.  You will also need to
 follow the instructions to set the USB permissions so that non-root users can access the device.
+https://github.com/padelt/temper-python
 
 Finally, you will need to clone this repo to your device and run the server.
