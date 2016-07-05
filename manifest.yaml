@@ -15,6 +15,11 @@ info:
   x-21-keywords: [temperature, sensor]
   x-21-quick-buy: "$ 21 buy url http://<ZEROTIER IP>:6016/"
   x-21-total-price: {max: 5, min: 5}
+  x-21-implements-meta: {
+        "x-sensor21-city": "{CITY}",
+        "x-sensor21-state": "{STATE}",
+        "x-sensor21-country": "{COUNTRY}"
+    }
 paths:
   /:
     get:
