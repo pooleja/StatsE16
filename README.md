@@ -1,77 +1,20 @@
-# How to run and publish: _**ping21**_
+# SensorE16
 
-### Step 1
-Get the latest version of the 21 software. You should be at version `2.3.5`.
+### Overview
+SensorE16 is a bitcoin payable web app designed for the 21 Marketplace to allow users to sell temperature readings from their local environment.  
 
-```
-$ 21 update
-$ 21 --version
-21 v2.3.5
-```
+SensorE16 inspired by the Sensor21 project that allows grid computer operators to sell stats around temperature and barometric pressure from
+sensors on their 21 computer.  That project requires a 21 Computer or Raspberry Pi and a breakout board, which is a bit of a high barrier to
+entry for anyone just getting started.
 
-### Step 2
-Clone the ping21 repository.
+In contrast, SensorE16 is targeted to use a USB temperature probe that can be used on any computer running the 21 platform.  Specifically,
+it is built on the TEMPer USB temperature probe and uses the temper-python library to interact with it in the background.
 
-```
-$ git clone https://github.com/21dotco/ping21.git
-$ cd ping21
-$ sudo easy_install3 pip
-$ sudo pip3 install -r requirements.txt
-```
+### Setup
 
-### Step 3
-Join the `21market` Marketplace, and start a local
-server to accept ping21 requests. The server will run in the
-background and process requests.  You can optionally edit the file
-to change the default price, which is 5 Satoshis per request.
+First, you will need a TEMPer USB temperature probe.  The one used for development was from Amazon.com and cost approx $15.  https://www.amazon.com/gp/product/B009YRP906/ref=oh_aui_search_detailpage?ie=UTF8&psc=1
 
-```
-$ 21 join 21market
-$ python3 ping21-server.py -d
-```
+Second, you will need to follow the instructions on the temper-python github project page to install the libraries.  You will also need to
+follow the instructions to set the USB permissions so that non-root users can access the device.
 
-### Step 4
-Now use `21 publish` to submit the manifest file describing the
-ping21 service you just started. You can pass in arguments to override the
-default values in the file.  The name and email should be your own. The price
-field should match the price in the `@payment.required` decorator in `ping21-server.py`.
-The host of `'AUTO'` is a special input that tells the publish command to use
-the IP of your bitcoin computer within the `21market` Marketplace (see
-[here](https://21.co/learn/21-marketplace/#the-21-network for details)). The
-port of 6002 is the default port specified within the
-`ping21-server.py` code that you are running.
-
-```
-$ 21 publish submit manifest.yaml -p 'name="Joe Smith" email="joe@example.com" price="5" host="AUTO" port="6002"'
-```
-
-### Step 5
-After a brief wait of a second or so, you should be able to use `21 publish list`
-to see the endpoint you just put up:
-
-```
-$ 21 publish list
-```
-
-You can also search the 21 Marketplace for your app:
-
-```
-$ 21 search "ping21"
-```
-
-### Step 6
-You can now use bitcoin to buy that endpoint from yourself to test it out:
-
-```
-$ 21 buy url $HOST:$PORT/?uri=google.com
-```
-
-where `$HOST` is your Bitcoin Computer's IP address on the 21 Marketplace and
-`$PORT` is the port the web service is running on.
-
-### Step 7
-And you can see a receipt for this transaction:
-
-```
-$ 21 log
-```
+Finally, you will need to clone this repo to your device and run the server.
