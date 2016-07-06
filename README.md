@@ -47,3 +47,17 @@ Finally, run it as a daemon to have the service ready for others to consume.
 python3 statsE16-server.py -d
 Server running...
 ```
+
+## Get Paid
+To get paid for providing your stats, get it up and running and then send me your ZeroTier IP address.  You can DM it to me on Slack at https://slack.21.co.  My name is 'poole_party'.
+
+To get your ZeroTier IP:
+```
+sudo zerotier-cli listnetworks
+```
+You will see an output that looks similar to this:
+```
+200 listnetworks <nwid> <name> <mac> <status> <type> <dev> <ZT assigned ips>
+200 listnetworks 6c0c6960a20bf150 21market 32:04:57:14:35:89 OK PRIVATE zt0 10.244.108.6/16
+```
+Locate the row that says 21 market and your IP address will be the number at the end of that line with the form 10.244.XXX.XXX (ignore the number following the slash).  In this example, the IP address is "10.244.108.6".
