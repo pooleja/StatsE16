@@ -23,7 +23,7 @@ def get_server_info():
     data = raw.json()
     return data
 
-def sensorE16():
+def statsE16():
     """ Gets stats about the device.
 
     Raises:
