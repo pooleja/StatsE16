@@ -1,25 +1,23 @@
 basePath: /
 definitions:
-  Temperature:
+  Server:
     properties:
-      timestamp: {type: string, format: "YYYY-MM-DD 24HH:MM:SS.USSS"}
-      temperature: {type: number, format: float}
+      city: {type: string}
+      provider: {type: string}
+      public_ip: {type: string}
+      state: {type: string}
+      zip_code: {type: string}
     type: object
 host: 10.244.79.96:6016
 info:
   contact: {email: james@microtrx.com, name: eSixteen.co }
-  description: Get temperature data on demand for bitcoin.
-  title: SensorE16
+  description: Get machine stats on demand for bitcoin.
+  title: StatsE16
   x-21-category: utilities
-  x-21-github-project-url: https://github.com/pooleja/sensorE16
-  x-21-keywords: [temperature, sensor]
-  x-21-quick-buy: "$ 21 buy http://<ZEROTIER IP>:6016/"
+  x-21-github-project-url: https://github.com/pooleja/StatsE16
+  x-21-keywords: [stats, location, ram, cpu, disk, sensor]
+  x-21-quick-buy: "$ 21 buy http://<ZEROTIER IP>:7016/"
   x-21-total-price: {max: 5, min: 5}
-  x-21-implements-meta: {
-        "x-sensor21-city": "{CITY}",
-        "x-sensor21-state": "{STATE}",
-        "x-sensor21-country": "{COUNTRY}"
-    }
 paths:
   /:
     get:
@@ -27,11 +25,11 @@ paths:
       produces: [application/json]
       responses:
         200:
-          description: Air temperature for the location of the server and location information.
+          description: Stats for the location and hardware of the server.
           schema:
             properties:
-              temperature: {$ref: '#/definitions/Temperature'}
-      summary: Returns temperature in degrees C.
+              server: {$ref: '#/definitions/Server'}
+      summary: Returns stats about the device.
 schemes: [http]
 swagger: '2.0'
 x-21-manifest-path: /manifest
