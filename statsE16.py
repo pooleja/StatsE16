@@ -8,6 +8,8 @@ import shutil
 import subprocess
 import sys
 import datetime
+import psutil
+import platform
 from urllib.parse import urlparse
 
 __all__ = ["statsE16"]
@@ -35,13 +37,15 @@ def statsE16():
 
     info = {
         'server': get_server_info(),
-        'cpu_cores': '0',
-        'cpu_usage': '0',
-        'memory_gb': '0',
-        'memory_used': '0',
-        'total_disk_space': '0',
-        'disk_space_used': '0',
-        'OS': '0',
+        'cpu_count': psutil.cpu_count(),
+        'cpu_used_percent': psutil.cpu_percent(interval=1),
+        'memory_total': psutil.virtual_memory().total,
+        'memory_used_percent': psutil.virtual_memory().percent,
+        'disk_total': psutil.disk_usage('/').total,
+        'disk_used_percent': psutil.disk_usage('/').percent,
+        'platform_system': platform.system(),
+	'platform_release': platform.release(),
+	'platform_dist': platform.dist()[0] + " " + platform.dist()[1]
     }
     return info
 
