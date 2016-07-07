@@ -49,7 +49,12 @@ Server running...
 ```
 
 ## Get Paid
-To get paid for providing your stats, get it up and running and then send me your ZeroTier IP address.  You can DM it to me on Slack at https://slack.21.co.  My name is 'poole_party'.
+To get paid for providing your stats, get it up and running, join the market, and then send me your ZeroTier IP address.  You can DM it to me on Slack at https://slack.21.co.  My name is 'poole_party'.
+
+To join the market:
+```
+21 market join
+```
 
 To get your ZeroTier IP:
 ```
