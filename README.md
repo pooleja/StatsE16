@@ -53,7 +53,7 @@ To get paid for providing your stats, get it up and running, join the market, an
 
 To join the market:
 ```
-21 market join
+$ 21 market join
 ```
 
 To get your ZeroTier IP:
