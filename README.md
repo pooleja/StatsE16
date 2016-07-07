@@ -9,15 +9,15 @@ StatsE16 is a bitcoin payable web app designed for the 21 Marketplace to allow u
 First, get the project and install dependencies.
 
 ```
-git clone https://github.com/pooleja/StatsE16.git
-cd StatsE16
-sudo easy_install pip
-sudo pip install -r requirements.txt
+$ git clone https://github.com/pooleja/StatsE16.git
+$ cd StatsE16
+$ sudo easy_install pip
+$ sudo pip install -r requirements.txt
 ```
 
 Next, verify it works.  This should output the JSON data showing you stats.
 ```
-python3 statsE16.py
+$ python3 statsE16.py
 
 {
     "cpu_count": 4,
@@ -44,7 +44,7 @@ python3 statsE16.py
 
 Finally, run it as a daemon to have the service ready for others to consume.
 ```
-python3 statsE16-server.py -d
+$ python3 statsE16-server.py -d
 Server running...
 ```
 
@@ -53,7 +53,7 @@ To get paid for providing your stats, get it up and running and then send me you
 
 To get your ZeroTier IP:
 ```
-sudo zerotier-cli listnetworks
+$ sudo zerotier-cli listnetworks
 ```
 You will see an output that looks similar to this:
 ```
