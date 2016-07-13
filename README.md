@@ -58,11 +58,13 @@ $ 21 market join
 
 To get your ZeroTier IP:
 ```
-$ sudo zerotier-cli listnetworks
+$ 21 market status
 ```
 You will see an output that looks similar to this:
 ```
-200 listnetworks <nwid> <name> <mac> <status> <type> <dev> <ZT assigned ips>
-200 listnetworks 6c0c6960a20bf150 21market 32:04:57:14:35:89 OK PRIVATE zt0 10.244.108.6/16
+Network Name    Your IP
+--------------  --------------
+21market        10.244.119.122
 ```
-Locate the row that says 21 market and your IP address will be the number at the end of that line with the form 10.244.XXX.XXX (ignore the number following the slash).  In this example, the IP address is "10.244.108.6".
+
+The IP address will have the form 10.244.XXX.XXX.  In this example, the IP address is "10.244.119.122".
