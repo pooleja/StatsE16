@@ -49,7 +49,7 @@ Server running...
 ```
 
 ## Get Paid
-To get paid for providing your stats, get it up and running, join the market, and then send me your ZeroTier IP address.  You can DM it to me on Slack at https://slack.21.co.  My name is 'poole_party'.
+To get paid for providing your stats, get it up and running, join the market, and then register your ZeroTier IP address with eSixteen.co.
 
 To join the market:
 ```
@@ -68,6 +68,9 @@ Network Name    Your IP
 ```
 
 The IP address will have the form 10.244.XXX.XXX.  In this example, the IP address is "10.244.119.122".
+
+Register:
+Once it is running, just register your node IP with eSixteen.co and it will start polling your device at a minimum of every 24 hours. Register it [with eSixteen.co here.](http://www.esixteen.co/register)
 
 ## Make Sure it Stays Running
 To ensure the server stays running across reboots, you can create a reboot cron job.  This will ensure the StatsE16 will be restarted any time the device comes back online.
