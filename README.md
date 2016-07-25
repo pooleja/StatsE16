@@ -68,3 +68,22 @@ Network Name    Your IP
 ```
 
 The IP address will have the form 10.244.XXX.XXX.  In this example, the IP address is "10.244.119.122".
+
+## Make Sure it Stays Running
+To ensure the server stays running across reboots, you can create a reboot cron job.  This will ensure the StatsE16 will be restarted any time the device comes back online.
+
+To open the cron file:
+```
+$ crontab -e
+```
+
+Edit the file and add a reboot line (replace the path):
+```
+@reboot cd /your/path/to/StatsE16/ && python3 statsE16-server.py -d
+```
+
+Now you can reboot the device and ensure it is running:
+```
+$ ps aux | grep python3
+twenty     545  2.2  2.5  39928 25884 ?        Sl   17:35   0:07 python3 statsE16-server.py
+```
