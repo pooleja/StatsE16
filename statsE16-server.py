@@ -68,6 +68,6 @@ if __name__ == '__main__':
                 raise ValueError("error starting statsE16-server.py daemon")
         else:
             print("Server running...")
-            app.run(host='[::]', port=7016)
+            app.run(host='::', port=7016)
 
     run()
