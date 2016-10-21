@@ -49,7 +49,7 @@ Server running...
 ```
 
 ## Get Paid
-To get paid for providing your stats, get it up and running, join the market, and then send me your ZeroTier IP address.  You can DM it to me on Slack at https://slack.21.co.  My name is 'poole_party'.
+To get paid for providing your stats, get it up and running, join the market, and then register your ZeroTier IP address with eSixteen.co.
 
 To join the market:
 ```
@@ -57,4 +57,4 @@ $ 21 market join
 ```
 
 ## Register
-Register your node with [E16](https://www.esixteen.co/register) to become part of the stats gathering pool. 
+Register your node with [E16](https://www.esixteen.co/register) to become part of the stats gathering pool.
