@@ -44,8 +44,8 @@ def statsE16():
         'disk_total': psutil.disk_usage('/').total,
         'disk_used_percent': psutil.disk_usage('/').percent,
         'platform_system': platform.system(),
-	'platform_release': platform.release(),
-	'platform_dist': platform.dist()[0] + " " + platform.dist()[1]
+        'platform_release': platform.release(),
+        'platform_dist': platform.dist()[0] + " " + platform.dist()[1]
     }
     return info
 

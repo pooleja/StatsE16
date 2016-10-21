@@ -8,16 +8,17 @@ definitions:
       state: {type: string}
       zip_code: {type: string}
     type: object
-host: 10.244.79.96:7016
+host: '[fcce:a977:eef6:442a:aaf8:0000:0000:0001]:7016'
 info:
-  contact: {email: james@microtrx.com, name: eSixteen.co }
+  contact: {email: james@esixteen.co, name: eSixteen.co }
   description: Get machine stats on demand for bitcoin.
   title: StatsE16
   x-21-category: utilities
   x-21-github-project-url: https://github.com/pooleja/StatsE16
   x-21-keywords: [stats, location, ram, cpu, disk, iot, sensor]
-  x-21-quick-buy: "$ 21 buy http://10.244.79.96:7016/"
+  x-21-quick-buy: "$ 21 buy http://[fcce:a977:eef6:442a:aaf8:0000:0000:0001]:7016/"
   x-21-total-price: {max: 5, min: 5}
+  x-21-app-image: https://cdn.filepicker.io/api/file/xpq5tK5nSTm5ZuH2B3BW
 paths:
   /:
     get:
@@ -32,4 +33,3 @@ paths:
       summary: Returns stats about the device.
 schemes: [http]
 swagger: '2.0'
-x-21-manifest-path: /manifest

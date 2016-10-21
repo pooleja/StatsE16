@@ -28,15 +28,6 @@ log = logging.getLogger('werkzeug')
 log.setLevel(logging.ERROR)
 
 
-@app.route('/manifest')
-def manifest():
-    """Provide the app manifest to the 21 crawler.
-    """
-    with open('./manifest.yaml', 'r') as f:
-        manifest = yaml.load(f)
-    return json.dumps(manifest)
-
-
 @app.route('/')
 @payment.required(5)
 def measurement():
@@ -77,6 +68,6 @@ if __name__ == '__main__':
                 raise ValueError("error starting statsE16-server.py daemon")
         else:
             print("Server running...")
-            app.run(host='0.0.0.0', port=7016)
+            app.run(host='[::]', port=7016)
 
     run()

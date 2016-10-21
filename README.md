@@ -56,15 +56,5 @@ To join the market:
 $ 21 market join
 ```
 
-To get your ZeroTier IP:
-```
-$ 21 market status
-```
-You will see an output that looks similar to this:
-```
-Network Name    Your IP
---------------  --------------
-21market        10.244.119.122
-```
-
-The IP address will have the form 10.244.XXX.XXX.  In this example, the IP address is "10.244.119.122".
+## Register
+Register your node with [E16](https://www.esixteen.co/register) to become part of the stats gathering pool. 
